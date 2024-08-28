@@ -8,6 +8,7 @@ pipeline {
         stage('Start') {
             steps {
                 echo "Starting..."
+                echo "Email check"
             }
 
             post {
