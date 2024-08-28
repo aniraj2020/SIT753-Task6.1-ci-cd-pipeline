@@ -2,10 +2,6 @@ pipeline {
     agent any
     
     stages {
-        stage('Lets go') {
-            steps {
-                echo "Reading for the stage run.."
-            }
         stage('Build') {
             steps {
                 echo "Building the code..."
@@ -64,16 +60,14 @@ pipeline {
         
         success {
             mail to: "aniraj2020@gmail.com",
-            subject: "Pipeline executed Successfully",
-            body: "The Jenkins pipeline has completed successfully.",
-            attachLog: true
+                subject: "Pipeline executed Successfully",
+                body: "The Jenkins pipeline has completed successfully."
         }
         
         failure {
             mail to: "aniraj2020@gmail.com",
-            subject: "Pipeline execution Failed",
-            body: "The Jenkins pipeline has failed. Please check the attached logs.",
-            attachLog: true
+                subject: "Pipeline execution Failed",
+                body: "The Jenkins pipeline has failed. Please check the logs."
         }
     }
 }
