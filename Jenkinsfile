@@ -9,6 +9,23 @@ pipeline {
             steps {
                 echo "Starting..."
             }
+
+            post {
+                success {
+                    emailext (
+                        to: "aniraj2020@gmail.com",
+                        subject: "Unit and Integration Tests ran Successfully",
+                        body: "The Unit and Integration Tests have been completed successfully.",
+                    )
+                }
+                failure {
+                    emailext (
+                        to: "aniraj2020@gmail.com",
+                        subject: "Unit and Integration Tests Failed",
+                        body: "The Unit and Integration Tests have failed. Please check the attached logs.",
+                    )
+                }
+            }
         }
         
         stage('Build') {
