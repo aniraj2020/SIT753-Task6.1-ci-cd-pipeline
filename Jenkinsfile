@@ -5,6 +5,12 @@ pipeline {
     }
     
     stages {
+        stage('Start') {
+            steps {
+                echo "Let's start the process..."
+            }
+        }
+        
         stage('Build') {
             steps {
                 echo "Building the code..."
