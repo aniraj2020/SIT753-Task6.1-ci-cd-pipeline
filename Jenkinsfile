@@ -2,6 +2,10 @@ pipeline {
     agent any
     
     stages {
+        stage('Lets go') {
+            steps {
+                echo "Reading for the stage run.."
+            }
         stage('Build') {
             steps {
                 echo "Building the code..."
