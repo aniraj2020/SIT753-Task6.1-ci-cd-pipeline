@@ -35,6 +35,25 @@ pipeline {
                 echo "Analyzing the code..."
             }
         }
+
+        stage('Security Scan') {
+            steps {
+                echo "Performing Security Scan..."
+            }
+
+            post {
+                success {
+                    mail to: "aniraj2020@gmail.com",
+                    subject: "Security Scan completed Successfully",
+                    body: "The Security Scan has been completed successfully."
+                }
+                failure {
+                    mail to: "aniraj2020@gmail.com",
+                    subject: "Security Scan Failed",
+                    body: "The Security Scan has failed. Please check the logs."
+                }
+            }
+        }
         
         stage('Deploy to Staging') {
             steps {
