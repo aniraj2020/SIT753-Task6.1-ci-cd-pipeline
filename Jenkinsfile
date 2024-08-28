@@ -13,18 +13,14 @@ pipeline {
 
             post {
                 success {
-                    emailext (
-                        to: "aniraj2020@gmail.com",
-                        subject: "Unit and Integration Tests ran Successfully",
-                        body: "The Unit and Integration Tests have been completed successfully.",
-                    )
+                    mail to: "aniraj2020@gmail.com",
+                    subject: "Unit and Integration Tests ran Successfully",
+                    body: "The Unit and Integration Tests have been completed successfully."
                 }
                 failure {
-                    emailext (
-                        to: "aniraj2020@gmail.com",
-                        subject: "Unit and Integration Tests Failed",
-                        body: "The Unit and Integration Tests have failed. Please check the attached logs.",
-                    )
+                    mail to: "aniraj2020@gmail.com",
+                    subject: "Unit and Integration Tests Failed",
+                    body: "The Unit and Integration Tests have failed. Please check the logs."
                 }
             }
         }
@@ -42,20 +38,14 @@ pipeline {
 
             post {
                 success {
-                    emailext (
-                        to: "aniraj2020@gmail.com",
-                        subject: "Unit and Integration Tests ran Successfully",
-                        body: "The Unit and Integration Tests have been completed successfully.",
-                        attachLog: true
-                    )
+                    mail to: "aniraj2020@gmail.com",
+                    subject: "Unit and Integration Tests ran Successfully",
+                    body: "The Unit and Integration Tests have been completed successfully."
                 }
                 failure {
-                    emailext (
-                        to: "aniraj2020@gmail.com",
-                        subject: "Unit and Integration Tests Failed",
-                        body: "The Unit and Integration Tests have failed. Please check the attached logs.",
-                        attachLog: true
-                    )
+                    mail to: "aniraj2020@gmail.com",
+                    subject: "Unit and Integration Tests Failed",
+                    body: "The Unit and Integration Tests have failed. Please check the logs."
                 }
             }
         }
@@ -79,20 +69,14 @@ pipeline {
 
             post {
                 success {
-                    emailext (
-                        to: "aniraj2020@gmail.com",
-                        subject: "Integration Tests on Staging ran Successfully",
-                        body: "The Integration Tests on Staging have been completed successfully.",
-                        attachLog: true
-                    )
+                    mail to: "aniraj2020@gmail.com",
+                    subject: "Integration Tests on Staging ran Successfully",
+                    body: "The Integration Tests on Staging have been completed successfully."
                 }
                 failure {
-                    emailext (
-                        to: "aniraj2020@gmail.com",
-                        subject: "Integration Tests on Staging Failed",
-                        body: "The Integration Tests on Staging have failed. Please check the attached logs.",
-                        attachLog: true
-                    )
+                    mail to: "aniraj2020@gmail.com",
+                    subject: "Integration Tests on Staging Failed",
+                    body: "The Integration Tests on Staging have failed. Please check the logs."
                 }
             }
         }
@@ -106,21 +90,15 @@ pipeline {
     
     post {
         success {
-            emailext (
-                to: "aniraj2020@gmail.com",
-                subject: "Pipeline executed Successfully",
-                body: "The Jenkins pipeline has completed successfully.",
-                attachLog: true
-            )
+            mail to: "aniraj2020@gmail.com",
+            subject: "Pipeline executed Successfully",
+            body: "The Jenkins pipeline has completed successfully."
         }
     
         failure {
-            emailext (
-                to: "aniraj2020@gmail.com",
-                subject: "Pipeline execution Failed",
-                body: "The Jenkins pipeline has failed. Please check the attached logs.",
-                attachLog: true
-            )
+            mail to: "aniraj2020@gmail.com",
+            subject: "Pipeline execution Failed",
+            body: "The Jenkins pipeline has failed. Please check the logs."
         }
     }
 }
