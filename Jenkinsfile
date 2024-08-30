@@ -5,27 +5,6 @@ pipeline {
     }
     
     stages {
-        stage('Start') {
-            steps {
-                echo "Starting..."
-                echo "Email check"
-                echo "Let's move to next stage..."
-            }
-
-            post {
-                success {
-                    mail to: "aniraj2020@gmail.com",
-                    subject: "Unit and Integration Tests ran Successfully",
-                    body: "The Unit and Integration Tests have been completed successfully."
-                }
-                failure {
-                    mail to: "aniraj2020@gmail.com",
-                    subject: "Unit and Integration Tests Failed",
-                    body: "The Unit and Integration Tests have failed. Please check the logs."
-                }
-            }
-        }
-        
         stage('Build') {
             steps {
                 echo "Building the code..."
