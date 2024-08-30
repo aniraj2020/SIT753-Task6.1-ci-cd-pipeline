@@ -9,6 +9,7 @@ pipeline {
             steps {
                 echo "Starting..."
                 echo "Email check"
+                echo "Let's move to next stage..."
             }
 
             post {
