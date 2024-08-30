@@ -8,12 +8,14 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building the code..."
+                echo "Tool: Maven"
             }
         }
         
         stage('Unit and Integration Tests') {
             steps {
                 echo "Running unit and integration tests..."
+                echo "Tool: JUnit, Maven"
             }
 
             post {
@@ -33,18 +35,41 @@ pipeline {
         stage('Code Analysis') {
             steps {
                 echo "Analyzing the code..."
+                echo "Tool: SonarQube"
+            }
+        }
+        
+        stage('Security Scan'){
+            steps{
+                echo "Perform a security scan to identify vulnerabilities"
+                echo "Tool: OWASP Dependency-Check"
+            }
+
+            post {
+                success {
+                    mail to: "aniraj2020@gmail.com",
+                    subject: "Security Scan completely Successfully",
+                    body: "The Security Scan has been completed successfully."
+                }
+                failure {
+                    mail to: "aniraj2020@gmail.com",
+                    subject: "Security Scan has Failed",
+                    body: "The Security Scan has failed. Please check the logs."
+                }
             }
         }
         
         stage('Deploy to Staging') {
             steps {
                 echo "Deploying to staging environment..."
+                echo "Tool: AWS CLI
             }
         }
         
         stage('Integration Tests on Staging') {
             steps {
                 echo "Running integration tests on staging..."
+                echo "Tool: Selenium, Postman"
             }
 
             post {
@@ -64,6 +89,7 @@ pipeline {
         stage('Deploy to Production') {
             steps {
                 echo "Deploying to production environment: ${env.PROD_ENV}..."
+                echo "Tool: Docker"
             }
         }
     }
@@ -72,7 +98,7 @@ pipeline {
         success {
             mail to: "aniraj2020@gmail.com",
             subject: "Pipeline executed Successfully",
-            body: "The Jenkins pipeline has completed successfully."
+            body: "The Jenkins pipeline has been completed successfully."
         }
     
         failure {
