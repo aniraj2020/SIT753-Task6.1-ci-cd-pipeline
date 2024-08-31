@@ -15,7 +15,7 @@ pipeline {
         stage('Unit and Integration Tests') {
             steps {
                 echo "Running unit and integration tests..."
-                echo "Tool: JUnit, Maven
+                echo "Tool: JUnit, Maven"
             }
 
             post {
